@@ -13,7 +13,7 @@ var polygon;
 
 
 function preload(){
-  
+  polygon_img=loadImage("polygon.png")
 }
 function setup() {
   createCanvas(900,400);
@@ -49,16 +49,20 @@ function setup() {
   polygon=Bodies.circle(50,200,20);
   World.add(world,polygon);
 
-//slingshot= new Slingshot(this.polygon,{x:100,y:200});
-imageMode(CENTER);
-image(polygon,polygon.position.x,polygon.position.y,40,40);  
+
+
+
+slingShot=new Slingshot(polygon,{x:80,y:150});
 
 }
 function draw() {
-  background(56,44,44); 
+  background(240,248,255); 
  
   textSize(20);
   fill("lightyellow");
+
+  imageMode(CENTER);
+image(polygon_img,polygon.position.x,polygon.position.y,40,40); 
   
 
   ground.display();
@@ -86,6 +90,18 @@ function draw() {
   block15.display();
   fill("grey");
   block16.display();
+
+  
+fill("blue");
+  slingShot.display();
+
  
+
+}
+function mouseDragged(){
+  Matter.Body.setPosition(polygon,{x:mouseX,y:mouseY});
+}
+function mouseReleased(){
+  slingShot.fly();
 
 }
