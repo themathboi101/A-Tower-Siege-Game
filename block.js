@@ -1,7 +1,7 @@
 class Block{
     constructor(x, y, width, height) {
         var options = {
-                     
+          restitution :0.7             
         }
         this.body = Bodies.rectangle(x, y, width, height, options);
         this.width = width;
@@ -18,6 +18,5 @@ class Block{
         rect(0,0,this.width, this.height);
         pop();
       }
-      if(polygon.isTocuhing(this.body){
-        this.body{isStatic:false};
+      
       }
